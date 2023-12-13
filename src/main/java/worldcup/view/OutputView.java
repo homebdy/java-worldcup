@@ -37,7 +37,7 @@ public class OutputView {
     }
 
     public void printNationResult(Nation nation, String logs) {
-        System.out.println(nation.getResult());
+        System.out.println(nation.getResultByNationName());
         System.out.println(logs);
     }
 

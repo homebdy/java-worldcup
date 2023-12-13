@@ -91,6 +91,18 @@ public class Nation {
         return sb.toString();
     }
 
+    public String getResultByNationName() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(OutputMessage.NEW_LINE.getMessage());
+        appendWin(sb);
+        appendDraw(sb);
+        appendLose(sb);
+        appendPoint(sb);
+        appendDifference(sb);
+        appendGoal(sb);
+        return sb.toString();
+    }
+
     private void appendName(StringBuilder sb) {
         sb.append(name).append(OutputMessage.COMMA.getMessage());
     }
