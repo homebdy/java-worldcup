@@ -1,6 +1,7 @@
 package worldcup.domain;
 
 import worldcup.constant.ExceptionMessage;
+import worldcup.constant.OutputMessage;
 
 import java.util.Arrays;
 
@@ -26,5 +27,9 @@ public enum GroupName {
                 .filter(value -> value.name.equals(input))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INVALID_GROUP.getMessage()));
+    }
+
+    public String getName() {
+        return name + OutputMessage.GROUP.getMessage();
     }
 }
