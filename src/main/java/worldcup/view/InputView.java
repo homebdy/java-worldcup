@@ -10,6 +10,7 @@ public class InputView {
 
     public Feature readFeature() {
         String input = Console.readLine();
+        validator.validateNumber(input);
         return Feature.getFeature(Integer.parseInt(input));
     }
 }
