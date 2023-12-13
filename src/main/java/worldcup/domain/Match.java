@@ -2,12 +2,12 @@ package worldcup.domain;
 
 public class Match {
 
+    private final boolean draw;
+    private final String message;
     private Nation winner;
     private Nation loser;
     private int winnerScore;
     private int loserScore;
-    private final boolean draw;
-    private final String message;
 
     public Match(GameLog nation1, GameLog nation2, String log) {
         getResult(nation1, nation2);

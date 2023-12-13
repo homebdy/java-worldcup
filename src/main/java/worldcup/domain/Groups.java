@@ -2,7 +2,9 @@ package worldcup.domain;
 
 import worldcup.constant.OutputMessage;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.Map;
 
 public class Groups {
 

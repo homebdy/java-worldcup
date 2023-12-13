@@ -33,4 +33,4 @@ public enum OutputMessage {
     public String getMessage() {
         return message;
     }
-    }
+}

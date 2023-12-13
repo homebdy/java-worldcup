@@ -28,6 +28,17 @@ public enum Feature {
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_FEATURE.getMessage()));
     }
 
+    public static String getScreen() {
+        StringBuilder sb = new StringBuilder();
+        Arrays.stream(Feature.values())
+                .forEach(f ->
+                        sb.append(f.number).append(OutputMessage.PERIOD.getMessage())
+                                .append(f.message)
+                                .append(OutputMessage.NEW_LINE.getMessage())
+                );
+        return sb.toString();
+    }
+
     public boolean isFirst() {
         return this == FIRST;
     }
@@ -46,16 +57,5 @@ public enum Feature {
 
     public boolean isFifth() {
         return this == FIFTH;
-    }
-
-    public static String getScreen() {
-        StringBuilder sb = new StringBuilder();
-        Arrays.stream(Feature.values())
-                .forEach(f ->
-                        sb.append(f.number).append(OutputMessage.PERIOD.getMessage())
-                                .append(f.message)
-                                .append(OutputMessage.NEW_LINE.getMessage())
-                );
-        return sb.toString();
     }
 }

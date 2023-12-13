@@ -23,7 +23,7 @@ public class ReadFile {
         List<String> lines = new ArrayList<>();
         try {
             lines = Files.readAllLines(path, charset);
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return lines;

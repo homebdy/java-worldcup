@@ -1,7 +1,10 @@
 package worldcup.view;
 
 import worldcup.constant.OutputMessage;
-import worldcup.domain.*;
+import worldcup.domain.Feature;
+import worldcup.domain.Group;
+import worldcup.domain.Matches;
+import worldcup.domain.Nation;
 
 public class OutputView {
 
@@ -12,6 +15,7 @@ public class OutputView {
     public void printMenu() {
         System.out.println(Feature.getScreen());
     }
+
     public void printSelectFeature() {
         System.out.println(OutputMessage.SELECT_FEATURE.getMessage());
     }
