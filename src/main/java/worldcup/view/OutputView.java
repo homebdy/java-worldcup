@@ -40,4 +40,8 @@ public class OutputView {
     public void printNextRoundNation(String message) {
         System.out.println(message);
     }
+
+    public void printEndMessage() {
+        System.out.println(OutputMessage.GAME_END.getMessage());
+    }
 }

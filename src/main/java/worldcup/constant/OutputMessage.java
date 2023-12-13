@@ -18,7 +18,8 @@ public enum OutputMessage {
     GOAL("득점"),
     COLON(" : "),
     RANKING("위 "),
-    READ_NATION("출력할 국가를 입력하세요 (월드컵 출전 국가)");
+    READ_NATION("출력할 국가를 입력하세요 (월드컵 출전 국가)"),
+    GAME_END("프로그램을 종료합니다.");
 
     private final String message;
 
