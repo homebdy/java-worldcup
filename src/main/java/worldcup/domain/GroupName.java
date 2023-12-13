@@ -32,4 +32,11 @@ public enum GroupName {
     public String getName() {
         return name + OutputMessage.GROUP.getMessage();
     }
+
+    public boolean isLast() {
+        int lastIndex = (int) Arrays.stream(GroupName.values())
+                .count();
+        return Arrays.stream(GroupName.values()).toList()
+                .get(lastIndex - 1) == this;
+    }
 }

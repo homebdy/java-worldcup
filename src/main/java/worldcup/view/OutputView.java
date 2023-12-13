@@ -29,7 +29,7 @@ public class OutputView {
     }
 
     public void printResultByGroupName(Group group) {
-        System.out.println(group.getResult());
+        System.out.print(group.getResult());
     }
 
     public void printNationMessage() {
@@ -38,14 +38,19 @@ public class OutputView {
 
     public void printNationResult(Nation nation, String logs) {
         System.out.println(nation.getResultByNationName());
+        System.out.println();
         System.out.println(logs);
     }
 
     public void printNextRoundNation(String message) {
-        System.out.println(message);
+        System.out.print(message);
     }
 
     public void printEndMessage() {
         System.out.println(OutputMessage.GAME_END.getMessage());
+    }
+
+    public void printNewLine() {
+        System.out.println();
     }
 }

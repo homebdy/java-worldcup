@@ -80,7 +80,9 @@ public class Groups {
             Group group = elements.get(groupName);
             sb.append(groupName.getName()).append(OutputMessage.NEW_LINE.getMessage());
             sb.append(group.getNextRoundNation());
-            sb.append(OutputMessage.NEW_LINE.getMessage());
+            if (!groupName.isLast()) {
+                sb.append(OutputMessage.NEW_LINE.getMessage());
+            }
         }
         return sb.toString();
     }

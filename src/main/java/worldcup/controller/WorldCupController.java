@@ -1,6 +1,7 @@
 package worldcup.controller;
 
 import worldcup.domain.Feature;
+import worldcup.domain.GroupName;
 import worldcup.domain.Nation;
 import worldcup.service.WorldcupService;
 import worldcup.view.InputView;
@@ -35,9 +36,12 @@ public class WorldCupController {
     }
 
     private Feature readFeature() {
+        outputView.printNewLine();
         outputView.printMenu();
         outputView.printSelectFeature();
-        return inputView.readFeature();
+        Feature feature = inputView.readFeature();
+        outputView.printNewLine();
+        return feature;
     }
 
     private void executeFirstFeature(Feature feature) {
@@ -49,7 +53,9 @@ public class WorldCupController {
     private void executeSecondFeature(Feature feature) {
         if (feature.isSecond()) {
             outputView.printReadGroup();
-            outputView.printResultByGroupName(service.getGroupByGroupName(inputView.readGroupName()));
+            GroupName groupname = inputView.readGroupName();
+            outputView.printNewLine();
+            outputView.printResultByGroupName(service.getGroupByGroupName(groupname));
         }
     }
 
@@ -57,9 +63,11 @@ public class WorldCupController {
         if (feature.isThird()) {
             outputView.printNationMessage();
             String input = inputView.readNation();
+            outputView.printNewLine();
             Nation nation = service.getNationByNationName(input);
             outputView.printNationResult(nation, service.getMatchesByNationName(input));
             outputView.printNextRoundNation(service.getAdvanceMessage(input));
+            outputView.printNewLine();
         }
     }
 
