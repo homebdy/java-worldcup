@@ -12,4 +12,7 @@ public class OutputView {
     public void printMenu() {
         System.out.println(Feature.getScreen());
     }
+    public void printSelectFeature() {
+        System.out.println(OutputMessage.SELECT_FEATURE.getMessage());
+    }
 }
