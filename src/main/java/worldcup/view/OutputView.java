@@ -2,6 +2,7 @@ package worldcup.view;
 
 import worldcup.constant.OutputMessage;
 import worldcup.domain.Feature;
+import worldcup.domain.Matches;
 
 public class OutputView {
 
@@ -14,5 +15,9 @@ public class OutputView {
     }
     public void printSelectFeature() {
         System.out.println(OutputMessage.SELECT_FEATURE.getMessage());
+    }
+
+    public void printAllMatches(Matches matches) {
+        System.out.println(matches.getAllMatch());
     }
 }

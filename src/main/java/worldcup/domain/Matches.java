@@ -1,53 +1,38 @@
 package worldcup.domain;
 
+import worldcup.constant.OutputMessage;
+
+import java.util.*;
+
 public class Matches {
 
-    private Nation winner;
-    private Nation loser;
-    private int winnerScore;
-    private int loserScore;
-    private final boolean draw ;
+    private final Map<GroupName, List<Match>> elements = new EnumMap<>(GroupName.class);
 
-    public Matches(GameLog nation1, GameLog nation2) {
-        getResult(nation1, nation2);
-        this.draw = isDraw(nation1, nation2);
+    public Matches() {
+        Arrays.stream(GroupName.values())
+                .forEach(name -> elements.put(name, new ArrayList<>()));
     }
 
-    private void getResult(GameLog nation1, GameLog nation2) {
-        if (nation1.getScore() > nation2.getScore()) {
-            this.winnerScore = nation1.getScore();
-            this.winner = nation1.getNation();
-            this.loserScore = nation2.getScore();
-            this.loser = nation2.getNation();
-            return;
+    public void addMatch(GroupName name, Match match) {
+        List<Match> newMatch = elements.get(name);
+        newMatch.add(match);
+        elements.put(name, newMatch);
+    }
+
+    public String getAllMatch() {
+        StringBuilder sb = new StringBuilder();
+        for (GroupName name : elements.keySet()) {
+            sb.append(name.getName()).append(OutputMessage.NEW_LINE.getMessage());
+            getLogsScreen(sb, name);
+            sb.append(OutputMessage.NEW_LINE.getMessage());
         }
-        this.winnerScore = nation2.getScore();
-        this.winner = nation2.getNation();
-        this.loserScore = nation1.getScore();
-        this.loser = nation1.getNation();
+        sb.append(OutputMessage.END_LINE.getMessage());
+        return sb.toString();
     }
 
-    private boolean isDraw(GameLog nation1, GameLog nation2) {
-        return nation1.getScore() == nation2.getScore();
-    }
-
-    public boolean isDraw() {
-        return draw;
-    }
-
-    public Nation getWinner() {
-        return winner;
-    }
-
-    public Nation getLoser() {
-        return loser;
-    }
-
-    public int getWinnerScore() {
-        return winnerScore;
-    }
-
-    public int getLoserScore() {
-        return loserScore;
+    private void getLogsScreen(StringBuilder sb, GroupName name) {
+        for (Match match : elements.get(name)) {
+            sb.append(match.getMessage()).append(OutputMessage.NEW_LINE.getMessage());
+        }
     }
 }
