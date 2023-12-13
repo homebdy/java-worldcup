@@ -2,6 +2,8 @@ package worldcup.view;
 
 import worldcup.constant.OutputMessage;
 import worldcup.domain.Feature;
+import worldcup.domain.Group;
+import worldcup.domain.Groups;
 import worldcup.domain.Matches;
 
 public class OutputView {
@@ -23,5 +25,9 @@ public class OutputView {
 
     public void printReadGroup() {
         System.out.println(OutputMessage.READ_GROUP.getMessage());
+    }
+
+    public void printResultByGroupName(Group group) {
+        System.out.println(group.getResult());
     }
 }

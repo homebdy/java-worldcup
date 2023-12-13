@@ -1,5 +1,7 @@
 package worldcup.domain;
 
+import worldcup.constant.OutputMessage;
+
 import java.util.*;
 
 public class Group {
@@ -59,7 +61,17 @@ public class Group {
         Collections.reverse(elements);
     }
 
-    public List<Nation> getElements() {
-        return elements;
+    public int size() {
+        return elements.size();
+    }
+
+    public String getResult() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < elements.size(); i++) {
+            sb.append(i + 1).append(OutputMessage.RANKING.getMessage());
+            Nation nation = elements.get(i);
+            sb.append(nation.getResult()).append(OutputMessage.NEW_LINE.getMessage());
+        }
+        return sb.toString();
     }
 }

@@ -45,4 +45,8 @@ public class Groups {
         group.increaseGoal(match.getWinner(), match.getWinnerScore(), match.getLoserScore());
         group.increaseGoal(match.getLoser(), match.getLoserScore(), match.getWinnerScore());
     }
+
+    public Group getGroupByGroupName(GroupName name) {
+        return elements.get(name);
+    }
 }

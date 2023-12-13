@@ -27,4 +27,8 @@ public class WorldcupService {
     public Matches getMatches() {
         return matches;
     }
+
+    public Group getGroupByGroupName(GroupName name) {
+        return groups.getGroupByGroupName(name);
+    }
 }

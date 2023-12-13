@@ -28,6 +28,26 @@ public enum Feature {
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_FEATURE.getMessage()));
     }
 
+    public boolean isFirst() {
+        return this == FIRST;
+    }
+
+    public boolean isSecond() {
+        return this == SECOND;
+    }
+
+    public boolean isThird() {
+        return this == THIRD;
+    }
+
+    public boolean isFourth() {
+        return this == FOURTH;
+    }
+
+    public boolean isFifth() {
+        return this == FIFTH;
+    }
+
     public static String getScreen() {
         StringBuilder sb = new StringBuilder();
         Arrays.stream(Feature.values())
