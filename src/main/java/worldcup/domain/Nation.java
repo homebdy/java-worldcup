@@ -8,6 +8,7 @@ public class Nation {
     private int winCount = 0;
     private int drawCount = 0;
     private int loseCount = 0;
+    private int point = 0;
 
     public Nation(String name) {
         this.name = name;
@@ -19,10 +20,12 @@ public class Nation {
 
     public void increaseWin() {
         winCount += 1;
+        point += 3;
     }
 
     public void increaseDraw() {
         drawCount += 1;
+        point += 1;
     }
 
     public void increaseLose() {
@@ -53,5 +56,9 @@ public class Nation {
 
     public int getLoseCount() {
         return loseCount;
+    }
+
+    public int getPoint() {
+        return point;
     }
 }
