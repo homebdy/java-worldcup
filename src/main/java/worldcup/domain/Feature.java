@@ -1,9 +1,9 @@
 package worldcup.domain;
 
+import worldcup.constant.ExceptionMessage;
 import worldcup.constant.OutputMessage;
 
 import java.util.Arrays;
-import java.util.function.Consumer;
 
 public enum Feature {
 
@@ -25,7 +25,7 @@ public enum Feature {
         return Arrays.stream(Feature.values())
                 .filter(f -> f.number == number)
                 .findAny()
-                .get();
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_FEATURE.getMessage()));
     }
 
     public static String getScreen() {
