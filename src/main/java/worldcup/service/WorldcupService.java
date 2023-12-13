@@ -22,8 +22,4 @@ public class WorldcupService {
         Matches match = new Matches(new GameLog(nation1, score1), new GameLog(nation2, score2));
         groups.addResult(name, match);
     }
-
-    public void print() {
-        groups.print();
-    }
 }
