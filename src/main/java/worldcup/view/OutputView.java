@@ -53,4 +53,8 @@ public class OutputView {
     public void printNewLine() {
         System.out.println();
     }
+
+    public void printExceptionMessage(String message) {
+        System.out.println(message);
+    }
 }
