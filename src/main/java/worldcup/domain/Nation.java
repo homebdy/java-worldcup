@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Nation {
 
     private final String name;
-    private int goal;
+    private int winCount = 0;
 
     public Nation(String name) {
         this.name = name;
@@ -13,6 +13,10 @@ public class Nation {
 
     public String getName() {
         return name;
+    }
+
+    public void increaseWin() {
+        winCount += 1;
     }
 
     @Override
@@ -27,5 +31,9 @@ public class Nation {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public int getWinCount() {
+        return winCount;
     }
 }
