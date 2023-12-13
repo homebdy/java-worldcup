@@ -17,6 +17,7 @@ public class Groups {
         addNation(group, match.getLoser());
         increaseResultCount(match, group);
         increaseDrawCount(match, group);
+        calculateGoal(group, match);
     }
 
     private void addNation(Group group, Nation nation) {
@@ -27,6 +28,7 @@ public class Groups {
 
     private void increaseResultCount(Matches match, Group group) {
         if (!match.isDraw()) {
+            System.out.println(match.getWinner().getName());
             group.increaseWinCount(match.getWinner());
             group.increaseLoseCount(match.getLoser());
         }
@@ -39,10 +41,15 @@ public class Groups {
         }
     }
 
+    private void calculateGoal(Group group, Matches match) {
+        group.increaseGoal(match.getWinner(), match.getWinnerScore(), match.getLoserScore());
+        group.increaseGoal(match.getLoser(), match.getLoserScore(), match.getWinnerScore());
+    }
+
     public void print() {
         for (GroupName groupName : GroupName.values()) {
             Group group = elements.get(groupName);
-            group.getElements().forEach(i -> System.out.println(i.getName() + " " + i.getWinCount() + " " + i.getDrawCount() + " " + i.getLoseCount()));
+            group.getElements().forEach(i -> System.out.println(i.getName() + " " + i.getWinCount() + " " + i.getDrawCount() + " " + i.getLoseCount() + " " + i.getPoint() + " " + i.getDifference() + " " + i.getGoal()));
         }
     }
 }

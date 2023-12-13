@@ -2,34 +2,29 @@ package worldcup.domain;
 
 public class Matches {
 
-    private final Nation winner;
-    private final Nation loser;
+    private Nation winner;
+    private Nation loser;
     private int winnerScore;
     private int loserScore;
     private final boolean draw ;
 
     public Matches(GameLog nation1, GameLog nation2) {
-        this.winner = getWinner(nation1, nation2);
-        this.loser = getLoser(nation1, nation2);
+        getResult(nation1, nation2);
         this.draw = isDraw(nation1, nation2);
     }
 
-    private Nation getWinner(GameLog nation1, GameLog nation2) {
+    private void getResult(GameLog nation1, GameLog nation2) {
         if (nation1.getScore() > nation2.getScore()) {
             this.winnerScore = nation1.getScore();
-            return nation1.getNation();
+            this.winner = nation1.getNation();
+            this.loserScore = nation2.getScore();
+            this.loser = nation2.getNation();
+            return;
         }
         this.winnerScore = nation2.getScore();
-        return nation2.getNation();
-    }
-
-    private Nation getLoser(GameLog nation1, GameLog nation2) {
-        if (nation1.getScore() < nation2.getScore()) {
-            this.loserScore = nation1.getScore();
-            return nation1.getNation();
-        }
-        this.loserScore = nation2.getScore();
-        return nation2.getNation();
+        this.winner = nation2.getNation();
+        this.loserScore = nation1.getScore();
+        this.loser = nation1.getNation();
     }
 
     private boolean isDraw(GameLog nation1, GameLog nation2) {

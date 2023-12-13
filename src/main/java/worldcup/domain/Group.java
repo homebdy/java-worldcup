@@ -46,6 +46,14 @@ public class Group {
                 .increaseLose();
     }
 
+    public void increaseGoal(Nation nation, int ourGoal, int otherGoal) {
+        elements.stream()
+                .filter(n -> Objects.equals(n.getName(), nation.getName()))
+                .findFirst()
+                .get()
+                .increaseGoal(ourGoal, otherGoal);
+    }
+
     public List<Nation> getElements() {
         return elements;
     }

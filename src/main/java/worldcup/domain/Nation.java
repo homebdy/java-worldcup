@@ -9,6 +9,8 @@ public class Nation {
     private int drawCount = 0;
     private int loseCount = 0;
     private int point = 0;
+    private int goal = 0;
+    private int otherSideGoal = 0;
 
     public Nation(String name) {
         this.name = name;
@@ -30,6 +32,11 @@ public class Nation {
 
     public void increaseLose() {
         loseCount += 1;
+    }
+
+    public void increaseGoal(int ourGoal, int otherGoal) {
+        goal += ourGoal;
+        otherSideGoal += otherGoal;
     }
 
     @Override
@@ -60,5 +67,13 @@ public class Nation {
 
     public int getPoint() {
         return point;
+    }
+
+    public int getDifference() {
+        return goal - otherSideGoal;
+    }
+
+    public int getGoal() {
+        return goal;
     }
 }
