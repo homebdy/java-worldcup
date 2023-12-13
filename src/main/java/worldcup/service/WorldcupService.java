@@ -40,4 +40,8 @@ public class WorldcupService {
         GroupName groupName = groups.getGroupNameByNationName(nationName);
         return matches.getLogsByNationName(groupName, nationName);
     }
+
+    public String getNextRoundNation() {
+        return groups.getNextRoundNation();
+    }
 }

@@ -94,4 +94,15 @@ public class Group {
         }
         return n;
     }
+
+    public String getNextRoundNation() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < 2; i++) {
+            Nation nation = elements.get(i);
+            stringBuilder.append(i + 1).append(OutputMessage.RANKING.getMessage())
+                    .append(nation.getName())
+                    .append(OutputMessage.NEW_LINE.getMessage());
+        }
+        return stringBuilder.toString();
+    }
 }

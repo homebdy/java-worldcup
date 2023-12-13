@@ -36,4 +36,8 @@ public class OutputView {
         System.out.println(nation.getResult());
         System.out.println(logs);
     }
+
+    public void printNextRoundNation(String message) {
+        System.out.println(message);
+    }
 }

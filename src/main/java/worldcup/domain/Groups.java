@@ -1,5 +1,7 @@
 package worldcup.domain;
 
+import worldcup.constant.OutputMessage;
+
 import java.util.*;
 
 public class Groups {
@@ -69,5 +71,16 @@ public class Groups {
             }
         }
         return nation;
+    }
+
+    public String getNextRoundNation() {
+        StringBuilder sb = new StringBuilder();
+        for (GroupName groupName : elements.keySet()) {
+            Group group = elements.get(groupName);
+            sb.append(groupName.getName()).append(OutputMessage.NEW_LINE.getMessage());
+            sb.append(group.getNextRoundNation());
+            sb.append(OutputMessage.NEW_LINE.getMessage());
+        }
+        return sb.toString();
     }
 }
