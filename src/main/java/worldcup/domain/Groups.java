@@ -83,4 +83,29 @@ public class Groups {
         }
         return sb.toString();
     }
+
+    public String getAdvance(GroupName groupName, String nationName) {
+        Group group = elements.get(groupName);
+        StringBuilder sb = new StringBuilder();
+        sb.append(groupName.getName()).append(OutputMessage.BLANK.getMessage());
+        appendAdvance(sb, group, nationName);
+        appendNotAdvance(sb, group, nationName);
+        return sb.toString();
+    }
+
+    public void appendAdvance(StringBuilder sb, Group group, String nationName) {
+        if (group.isAdvance(nationName)) {
+            sb.append(group.getRanking(nationName))
+                    .append(OutputMessage.RANKING.getMessage())
+                    .append(OutputMessage.ADVANCE.getMessage());
+        }
+    }
+
+    public void appendNotAdvance(StringBuilder sb, Group group, String nationName) {
+        if (!group.isAdvance(nationName)) {
+            sb.append(group.getRanking(nationName))
+                    .append(OutputMessage.RANKING.getMessage())
+                    .append(OutputMessage.NOT_ADVANCE.getMessage());
+        }
+    }
 }

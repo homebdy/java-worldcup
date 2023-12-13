@@ -19,7 +19,10 @@ public enum OutputMessage {
     COLON(" : "),
     RANKING("위 "),
     READ_NATION("출력할 국가를 입력하세요 (월드컵 출전 국가)"),
-    GAME_END("프로그램을 종료합니다.");
+    GAME_END("프로그램을 종료합니다."),
+    ADVANCE("로 16강 진출에 성공했습니다."),
+    NOT_ADVANCE("로 16강 진출에 실패했습니다."),
+    BLANK(" ");
 
     private final String message;
 

@@ -105,4 +105,26 @@ public class Group {
         }
         return stringBuilder.toString();
     }
+
+    public boolean isAdvance(String nationName) {
+        boolean flag = false;
+        for (int i = 0; i < 2; i++) {
+            Nation nation = elements.get(i);
+            if (nation.isEqualName(nationName)) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+    public int getRanking(String nationName) {
+        int index = 0;
+        for (int i = 0; i < elements.size(); i++) {
+            Nation nation = elements.get(i);
+            if (nation.isEqualName(nationName)) {
+                index = i + 1;
+            }
+        }
+        return index;
+    }
 }

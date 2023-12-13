@@ -59,6 +59,7 @@ public class WorldCupController {
             String input = inputView.readNation();
             Nation nation = service.getNationByNationName(input);
             outputView.printNationResult(nation, service.getMatchesByNationName(input));
+            outputView.printNextRoundNation(service.getAdvanceMessage(input));
         }
     }
 

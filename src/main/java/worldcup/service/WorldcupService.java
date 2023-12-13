@@ -44,4 +44,9 @@ public class WorldcupService {
     public String getNextRoundNation() {
         return groups.getNextRoundNation();
     }
+
+    public String getAdvanceMessage(String nationName) {
+        GroupName groupName = groups.getGroupNameByNationName(nationName);
+        return groups.getAdvance(groupName, nationName);
+    }
 }
