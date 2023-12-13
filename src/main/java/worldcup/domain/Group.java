@@ -38,6 +38,14 @@ public class Group {
                 .increaseDraw();
     }
 
+    public void increaseLoseCount(Nation nation) {
+        elements.stream()
+                .filter(n -> Objects.equals(n.getName(), nation.getName()))
+                .findFirst()
+                .get()
+                .increaseLose();
+    }
+
     public List<Nation> getElements() {
         return elements;
     }
