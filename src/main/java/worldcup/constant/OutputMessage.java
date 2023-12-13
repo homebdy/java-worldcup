@@ -7,7 +7,8 @@ public enum OutputMessage {
     NEW_LINE("\n"),
     SELECT_FEATURE("출력할 내용을 입력하세요. (1 ~ 5)"),
     GROUP("조"),
-    END_LINE("============================================================");
+    END_LINE("============================================================"),
+    READ_GROUP("출력할 조를 입력하세요 (A ~ H)");
 
     private final String message;
 

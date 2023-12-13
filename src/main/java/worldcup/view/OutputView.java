@@ -20,4 +20,8 @@ public class OutputView {
     public void printAllMatches(Matches matches) {
         System.out.println(matches.getAllMatch());
     }
+
+    public void printReadGroup() {
+        System.out.println(OutputMessage.READ_GROUP.getMessage());
+    }
 }
