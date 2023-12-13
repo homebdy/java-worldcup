@@ -30,6 +30,14 @@ public class Group {
                 .increaseWin();
     }
 
+    public void increaseDrawCount(Nation nation) {
+        elements.stream()
+                .filter(n -> Objects.equals(n.getName(), nation.getName()))
+                .findFirst()
+                .get()
+                .increaseDraw();
+    }
+
     public List<Nation> getElements() {
         return elements;
     }

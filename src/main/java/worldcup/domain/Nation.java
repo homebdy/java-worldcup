@@ -6,6 +6,7 @@ public class Nation {
 
     private final String name;
     private int winCount = 0;
+    private int drawCount = 0;
 
     public Nation(String name) {
         this.name = name;
@@ -17,6 +18,10 @@ public class Nation {
 
     public void increaseWin() {
         winCount += 1;
+    }
+
+    public void increaseDraw() {
+        drawCount += 1;
     }
 
     @Override
@@ -35,5 +40,9 @@ public class Nation {
 
     public int getWinCount() {
         return winCount;
+    }
+
+    public int getDrawCount() {
+        return drawCount;
     }
 }

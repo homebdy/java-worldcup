@@ -11,7 +11,7 @@ public class Matches {
     public Matches(GameLog nation1, GameLog nation2) {
         this.winner = getWinner(nation1, nation2);
         this.loser = getLoser(nation1, nation2);
-        this.draw = isSame(nation1, nation2);
+        this.draw = isDraw(nation1, nation2);
     }
 
     private Nation getWinner(GameLog nation1, GameLog nation2) {
@@ -32,8 +32,12 @@ public class Matches {
         return nation2.getNation();
     }
 
-    private boolean isSame(GameLog nation1, GameLog nation2) {
+    private boolean isDraw(GameLog nation1, GameLog nation2) {
         return nation1.getScore() == nation2.getScore();
+    }
+
+    public boolean isDraw() {
+        return draw;
     }
 
     public Nation getWinner() {
