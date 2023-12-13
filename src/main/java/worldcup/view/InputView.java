@@ -19,4 +19,9 @@ public class InputView {
         String input = Console.readLine();
         return GroupName.getGroup(input);
     }
+
+    public String readNation() {
+        String input = Console.readLine();
+        return input;
+    }
 }
