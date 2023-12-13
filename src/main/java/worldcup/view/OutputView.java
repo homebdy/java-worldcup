@@ -30,4 +30,8 @@ public class OutputView {
     public void printResultByGroupName(Group group) {
         System.out.println(group.getResult());
     }
+
+    public void printNationMessage() {
+        System.out.println(OutputMessage.READ_NATION.getMessage());
+    }
 }

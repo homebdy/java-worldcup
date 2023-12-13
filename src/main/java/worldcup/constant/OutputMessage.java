@@ -17,7 +17,8 @@ public enum OutputMessage {
     DIFFERENCE("득실차"),
     GOAL("득점"),
     COLON(" : "),
-    RANKING("위 ");
+    RANKING("위 "),
+    READ_NATION("출력할 국가를 입력하세요 (월드컵 출전 국가)");
 
     private final String message;
 
