@@ -21,6 +21,13 @@ public enum Feature {
         this.message = message;
     }
 
+    public static Feature getFeature(int number) {
+        return Arrays.stream(Feature.values())
+                .filter(f -> f.number == number)
+                .findAny()
+                .get();
+    }
+
     public static String getScreen() {
         StringBuilder sb = new StringBuilder();
         Arrays.stream(Feature.values())
