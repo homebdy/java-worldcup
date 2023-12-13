@@ -135,4 +135,8 @@ public class Nation {
                 .append(OutputMessage.COLON.getMessage())
                 .append(goal);
     }
+
+    public boolean isEqualName(String input) {
+        return input.equals(this.name);
+    }
 }

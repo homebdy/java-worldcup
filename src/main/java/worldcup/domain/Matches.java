@@ -35,4 +35,14 @@ public class Matches {
             sb.append(match.getMessage()).append(OutputMessage.NEW_LINE.getMessage());
         }
     }
+
+    public String getLogsByNationName(GroupName groupName, String nationName) {
+        StringBuilder sb = new StringBuilder();
+        for (Match match : elements.get(groupName)) {
+            if (match.isContain(nationName)) {
+                sb.append(match.getMessage()).append(OutputMessage.NEW_LINE.getMessage());
+            }
+        }
+        return sb.toString();
+    }
 }

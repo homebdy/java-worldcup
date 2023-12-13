@@ -49,4 +49,25 @@ public class Groups {
     public Group getGroupByGroupName(GroupName name) {
         return elements.get(name);
     }
+
+    public GroupName getGroupNameByNationName(String nationName) {
+        GroupName result = GroupName.A_GROUP;
+        for (GroupName groupName : elements.keySet()) {
+            Group group = elements.get(groupName);
+            if (group.isContainNation(nationName)) {
+                result = groupName;
+            }
+        }
+        return result;
+    }
+
+    public Nation getNationByNationName(String nationName) {
+        Nation nation = null;
+        for (Group group : elements.values()) {
+            if (group.isContainNation(nationName)) {
+                nation = group.getNationtByNationName(nationName);
+            }
+        }
+        return nation;
+    }
 }

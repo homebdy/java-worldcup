@@ -1,10 +1,7 @@
 package worldcup.view;
 
 import worldcup.constant.OutputMessage;
-import worldcup.domain.Feature;
-import worldcup.domain.Group;
-import worldcup.domain.Groups;
-import worldcup.domain.Matches;
+import worldcup.domain.*;
 
 public class OutputView {
 
@@ -33,5 +30,10 @@ public class OutputView {
 
     public void printNationMessage() {
         System.out.println(OutputMessage.READ_NATION.getMessage());
+    }
+
+    public void printNationResult(Nation nation, String logs) {
+        System.out.println(nation.getResult());
+        System.out.println(logs);
     }
 }

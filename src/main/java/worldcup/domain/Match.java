@@ -56,4 +56,8 @@ public class Match {
     public String getMessage() {
         return message;
     }
+
+    public boolean isContain(String nationName) {
+        return message.contains(nationName);
+    }
 }

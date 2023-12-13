@@ -74,4 +74,24 @@ public class Group {
         }
         return sb.toString();
     }
+
+    public boolean isContainNation(String nationName) {
+        boolean flag = false;
+        for (Nation nation : elements) {
+            if (nation.isEqualName(nationName)) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+    public Nation getNationtByNationName(String nationName) {
+        Nation n = null;
+        for (Nation nation : elements) {
+            if (nation.isEqualName(nationName)) {
+                n = nation;
+            }
+        }
+        return n;
+    }
 }

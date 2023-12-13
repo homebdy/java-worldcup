@@ -31,4 +31,13 @@ public class WorldcupService {
     public Group getGroupByGroupName(GroupName name) {
         return groups.getGroupByGroupName(name);
     }
+
+    public Nation getNationByNationName(String nationName) {
+        return groups.getNationByNationName(nationName);
+    }
+
+    public String getMatchesByNationName(String nationName) {
+        GroupName groupName = groups.getGroupNameByNationName(nationName);
+        return matches.getLogsByNationName(groupName, nationName);
+    }
 }
