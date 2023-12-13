@@ -1,8 +1,6 @@
 package worldcup.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Group {
 
@@ -52,6 +50,13 @@ public class Group {
                 .findFirst()
                 .get()
                 .increaseGoal(ourGoal, otherGoal);
+    }
+
+    public void calculateRanking() {
+        Collections.sort(elements, Comparator.comparing(Nation::getGoal));
+        Collections.sort(elements, Comparator.comparing(Nation::getDifference));
+        Collections.sort(elements, Comparator.comparing(Nation::getPoint));
+        Collections.reverse(elements);
     }
 
     public List<Nation> getElements() {

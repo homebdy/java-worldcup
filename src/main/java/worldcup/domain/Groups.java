@@ -18,6 +18,7 @@ public class Groups {
         increaseResultCount(match, group);
         increaseDrawCount(match, group);
         calculateGoal(group, match);
+        group.calculateRanking();
     }
 
     private void addNation(Group group, Nation nation) {
@@ -48,6 +49,7 @@ public class Groups {
 
     public void print() {
         for (GroupName groupName : GroupName.values()) {
+            System.out.println(groupName);
             Group group = elements.get(groupName);
             group.getElements().forEach(i -> System.out.println(i.getName() + " " + i.getWinCount() + " " + i.getDrawCount() + " " + i.getLoseCount() + " " + i.getPoint() + " " + i.getDifference() + " " + i.getGoal()));
         }
