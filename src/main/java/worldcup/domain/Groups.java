@@ -1,5 +1,6 @@
 package worldcup.domain;
 
+import worldcup.constant.ExceptionMessage;
 import worldcup.constant.OutputMessage;
 
 import java.util.Arrays;
@@ -66,13 +67,11 @@ public class Groups {
     }
 
     public Nation getNationByNationName(String nationName) {
-        Nation nation = null;
-        for (Group group : elements.values()) {
-            if (group.isContainNation(nationName)) {
-                nation = group.getNationtByNationName(nationName);
-            }
-        }
-        return nation;
+        return elements.values().stream()
+                .filter(group -> group.isContainNation(nationName))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INVALID_NATION.getMessage()))
+                .getNationByNationName(nationName);
     }
 
     public String getNextRoundNation() {

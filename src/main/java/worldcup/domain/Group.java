@@ -1,5 +1,6 @@
 package worldcup.domain;
 
+import worldcup.constant.ExceptionMessage;
 import worldcup.constant.OutputMessage;
 
 import java.util.*;
@@ -26,7 +27,7 @@ public class Group {
         elements.stream()
                 .filter(n -> Objects.equals(n.getName(), nation.getName()))
                 .findFirst()
-                .get()
+                .orElseThrow(() -> new IllegalStateException(ExceptionMessage.INVALID_NATION.getMessage()))
                 .increaseWin();
     }
 
@@ -34,7 +35,7 @@ public class Group {
         elements.stream()
                 .filter(n -> Objects.equals(n.getName(), nation.getName()))
                 .findFirst()
-                .get()
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INVALID_NATION.getMessage()))
                 .increaseDraw();
     }
 
@@ -42,7 +43,7 @@ public class Group {
         elements.stream()
                 .filter(n -> Objects.equals(n.getName(), nation.getName()))
                 .findFirst()
-                .get()
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INVALID_NATION.getMessage()))
                 .increaseLose();
     }
 
@@ -50,14 +51,14 @@ public class Group {
         elements.stream()
                 .filter(n -> Objects.equals(n.getName(), nation.getName()))
                 .findFirst()
-                .get()
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INVALID_NATION.getMessage()))
                 .increaseGoal(ourGoal, otherGoal);
     }
 
     public void calculateRanking() {
-        Collections.sort(elements, Comparator.comparing(Nation::getGoal));
-        Collections.sort(elements, Comparator.comparing(Nation::getDifference));
-        Collections.sort(elements, Comparator.comparing(Nation::getPoint));
+        elements.sort(Comparator.comparing(Nation::getGoal));
+        elements.sort(Comparator.comparing(Nation::getDifference));
+        elements.sort(Comparator.comparing(Nation::getPoint));
         Collections.reverse(elements);
     }
 
@@ -68,7 +69,7 @@ public class Group {
     public String getResult() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < elements.size(); i++) {
-            sb.append(i + 1).append(OutputMessage.RANKING.getMessage());
+            sb.append(i + 1).append(OutputMessage.RANKING.getMessage()).append(OutputMessage.BLANK.getMessage());
             Nation nation = elements.get(i);
             sb.append(nation.getResult()).append(OutputMessage.NEW_LINE.getMessage());
         }
@@ -85,14 +86,11 @@ public class Group {
         return flag;
     }
 
-    public Nation getNationtByNationName(String nationName) {
-        Nation n = null;
-        for (Nation nation : elements) {
-            if (nation.isEqualName(nationName)) {
-                n = nation;
-            }
-        }
-        return n;
+    public Nation getNationByNationName(String nationName) {
+        return elements.stream()
+                .filter(nation -> nation.isEqualName(nationName))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INVALID_NATION.getMessage()));
     }
 
     public String getNextRoundNation() {
@@ -100,6 +98,7 @@ public class Group {
         for (int i = 0; i < 2; i++) {
             Nation nation = elements.get(i);
             stringBuilder.append(i + 1).append(OutputMessage.RANKING.getMessage())
+                    .append(OutputMessage.BLANK.getMessage())
                     .append(nation.getName())
                     .append(OutputMessage.NEW_LINE.getMessage());
         }
